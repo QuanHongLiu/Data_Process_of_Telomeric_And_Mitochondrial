@@ -1,1 +1,25 @@
-# Data_Process_of_Telomeric_And_Mitochondrial
+# Data_Process_of_Telomeric_And_Mitochondrial 
+
+# 数据格式
+Sample_Name	Target_Name	CT	Ct_Mean	Ct_SD
+1111781	TEL	28.103	30.650	2.817 
+1111781	TEL	33.677	30.650	2.817 
+1111781	TEL	30.170	30.650	2.817 
+1111781	ACTI	21.240	21.367	0.142 
+1111781	ACTI	21.341	21.367	0.142
+1111781	ACTI	21.521	21.367	0.142 
+ 
+# main.py 实现逻辑
+1、设置文件路径，加载所需包
+2、生成当前目录下后缀为.xls的文件名相量
+3、在当前目录下创建新目录/new，用来接收结果
+4、循环处理，每个文件：
+  (1) 导入原始数据
+  (2) 删除Sample_Name以上的无用信息
+  (3) 生成一个长度为20的字符串向量，用来填补空白Sample_Name
+  (4) 填充Sample_Name（非常复杂）
+  (5) 按照Sample_Name 排序
+  (6) 定义输出数据集
+  (7) 处理每一个Sample_Name的子数据集并写入输出数据集
+  (8) 判断该数据集属于现例题还是端粒数据集，不同数据集输出方式不相同
+  
