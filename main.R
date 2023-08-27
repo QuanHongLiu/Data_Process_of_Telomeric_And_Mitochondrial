@@ -15,7 +15,7 @@ library(readxl)
 rm(list = ls())
 
 # 文件名向量
-file_names <- list.files(path = getwd(), pattern = "\\.xls$") 
+file_names <- list.files(path = getwd(), pattern = "\\.xls$")  
 
 # 创建新目录
 dir.create('Results') 
@@ -181,7 +181,7 @@ for (FILE in file_names) {
   
   # 输出
   if (tolower('nd1') %in% tolower(unique(source$...2))){
-    names(out) <- c("SampleName","CT1_pre_ND1","CT2_pre_ND1","CT3_pre_ND1","CTmean_pre_ND1","CTsd_preV_ND1",
+    names(out) <- c("SampleName","CT1_pre_ND1","CT2_pre_ND1","CT3_pre_ND1","CTmean_pre_ND1","CTsd_preV_ND1", 
                     "CT1_pos_ACTB","CT2_pos_ACTB","CT3_pos_ACTB","CTmean_pos_ACTB","CTsd_pos_ACTB","Plate")
     # 创建一个工作簿
     wb <- createWorkbook()
@@ -190,7 +190,7 @@ for (FILE in file_names) {
     # 将数据框中的数据写入工作表
     writeData(wb, sheet = "Mitochondria", x = out)
     # 保存工作簿为Excel文件
-    saveWorkbook(wb, paste(sep = "","./new/",sub("\\.[^.]+$", "", FILE),'.xlsx'), overwrite = TRUE)
+    saveWorkbook(wb, paste(sep = "","./Results/",sub("\\.[^.]+$", "", FILE),'.xlsx'), overwrite = TRUE)
     
   }else{
     names(out) <- c("SampleName","CT1_pre_TEL","CT2_pre_TEL","CT3_pre_TEL","CTmean_pre_TEL","CTsd_preV_TEL",
@@ -202,7 +202,7 @@ for (FILE in file_names) {
     # 将数据框中的数据写入工作表
     writeData(wb, sheet = "Telomere", x = out)
     # 保存工作簿为Excel文件
-    saveWorkbook(wb, paste(sep = "","./new/",sub("\\.[^.]+$", "", FILE),'.xlsx'), overwrite = TRUE)
+    saveWorkbook(wb, paste(sep = "","./Results/",sub("\\.[^.]+$", "", FILE),'.xlsx'), overwrite = TRUE)
   }
 }
 # Coded by Quanhong Liu 2023.8.27
