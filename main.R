@@ -15,10 +15,10 @@ library(readxl)
 rm(list = ls())
 
 # 文件名向量
-file_names <- list.files(path = getwd(), pattern = "\\.xls$")  
+file_names <- list.files(path = getwd(), pattern = "\\.xls$")
 
 # 创建新目录
-dir.create('Results') 
+dir.create('Results')
 
 # 循环文件
 for (FILE in file_names) {
@@ -30,7 +30,7 @@ for (FILE in file_names) {
   source <- source[-c(1:row),]
   rm(row)
   
-  # 定义一个随机SampleName
+  # 定义一个随机RandSN
   set.seed(123)
   # 生成字符向量
   characters <- c(letters, LETTERS)  # 包含所有小写和大写字母
@@ -181,7 +181,7 @@ for (FILE in file_names) {
   
   # 输出
   if (tolower('nd1') %in% tolower(unique(source$...2))){
-    names(out) <- c("SampleName","CT1_pre_ND1","CT2_pre_ND1","CT3_pre_ND1","CTmean_pre_ND1","CTsd_preV_ND1", 
+    names(out) <- c("SampleName","CT1_pre_ND1","CT2_pre_ND1","CT3_pre_ND1","CTmean_pre_ND1","CTsd_preV_ND1",
                     "CT1_pos_ACTB","CT2_pos_ACTB","CT3_pos_ACTB","CTmean_pos_ACTB","CTsd_pos_ACTB","Plate")
     # 创建一个工作簿
     wb <- createWorkbook()
