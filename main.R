@@ -8,17 +8,17 @@ setwd("C:/Users/admin/Desktop/wenjian")
 library(openxlsx)
 library(readxl)
 # 5、运行所有代码
-# 6、结果在当前目录下new文件夹下
+# 6、结果在当前目录下Results文件夹下
 ################################################################
 
 # 清除环境
 rm(list = ls())
 
 # 文件名向量
-file_names <- list.files(path = getwd(), pattern = "\\.xls$")
+file_names <- list.files(path = getwd(), pattern = "\\.xls$") 
 
 # 创建新目录
-dir.create('new')
+dir.create('Results') 
 
 # 循环文件
 for (FILE in file_names) {
